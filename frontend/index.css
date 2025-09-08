@@ -1,0 +1,41 @@
+/* Tailwind base imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* simple base styles */
+:root{
+  --bg:#f4f6f8;
+  --card:#ffffff;
+  --accent:#2563eb;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color:#111827;
+}
+
+/* layout */
+.app-shell { display:flex; min-height:100vh; }
+.sidebar { width:240px; background:#111827; color:white; padding:20px; }
+.main { flex:1; display:flex; flex-direction:column; min-height:100vh; }
+.navbar { background:var(--card); padding:12px 20px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+.container { padding:20px; }
+
+.card { background:var(--card); border-radius:8px; padding:16px; box-shadow:0 1px 3px rgba(0,0,0,0.06); margin-bottom:16px; }
+
+.btn { background:var(--accent); color:white; border:none; padding:8px 12px; border-radius:6px; cursor:pointer; }
+.btn.secondary { background:#06b6d4; }
+.small { padding:6px 8px; font-size:0.9rem; }
+
+.table { width:100%; border-collapse:collapse; }
+.table th, .table td { padding:8px 10px; border-bottom:1px solid #eef2f7; text-align:left; }
+.link { color:#3b82f6; text-decoration:none; cursor:pointer; }
+
+.login-wrap { display:flex; align-items:center; justify-content:center; min-height:100vh; }
+.login-card { width:100%; max-width:420px; padding:20px; background:var(--card); border-radius:8px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+
+.warning { color:#dc2626; font-weight:600; }

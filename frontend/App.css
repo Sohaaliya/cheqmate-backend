@@ -1,0 +1,80 @@
+/* App.css or Logs.module.css */
+
+/* Table styles */
+.table-center {
+  margin: auto;
+  border-collapse: collapse;
+  width: 90%;
+  max-width: 900px;
+}
+
+.table-center th,
+.table-center td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Table header */
+.table-center th {
+  background-color: #3b82f6; /* blue */
+  color: white;
+  font-weight: bold;
+}
+
+/* Hover row effect */
+.table-center tbody tr:hover {
+  background-color: #e0f2fe; /* light blue */
+}
+
+/* Buttons */
+.btn {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-add {
+  background-color: #10b981; /* green */
+  color: white;
+}
+
+.btn-add:hover {
+  background-color: #059669; /* dark green */
+}
+
+.btn-edit {
+  background-color: #fbbf24; /* yellow */
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #f59e0b; /* dark yellow */
+}
+
+.btn-delete {
+  background-color: #ef4444; /* red */
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #b91c1c; /* dark red */
+}
+
+/* Inputs/selects inside table */
+.table-center input,
+.table-center select {
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+/* Headings */
+h1 {
+  color: #1e40af; /* dark blue */
+  text-align: center;
+  margin-bottom: 20px;
+}
