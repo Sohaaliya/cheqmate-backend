@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Exam Page - Browser Lockdown</title>
+<style>
+  body {
+    user-select: none; /* disable text selection */
+  }
+</style>
+<script>
+  // Request full screen on page load
+  function goFullScreen() {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
+  }
+
+  window.onload = () => {
+    goFullScreen();
+  };
+
+  // Disable right click
+  document.addEventListener('contextmenu', event => event.preventDefault());
+
+  // Disable keyboard shortcuts like F12 (dev tools), Ctrl+Shift+I, Ctrl+U (view source), Ctrl+S (save), Ctrl+C/V/X (copy/paste)
+  document.addEventListener('keydown', function(event) {
+    if (
+      event.key === 'F12' ||
+      (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J')) || // Ctrl+Shift+I/J
+      (event.ctrlKey && (event.key === 'U' || event.key === 'S' || event.key === 'C' || event.key === 'V' || event.key === 'X'))
+    ) {
+      event.preventDefault();
+      alert('This action is disabled during the exam.');
+    }
+  });
+
+  // Detect tab/window switching
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      alert('You switched tabs or minimized the window. This action is not allowed during the exam.');
+      // You could also log this event to the server here via AJAX or WebSocket
+    }
+  });
+
+  // Disable text selection and copying via mouse
+  document.addEventListener('selectstart', e => e.preventDefault());
+  document.addEventListener('copy', e => e.preventDefault());
+  document.addEventListener('paste', e => e.preventDefault());
+  document.addEventListener('cut', e => e.preventDefault());
+</script>
+</head>
+<body>
+<h1>Exam in Progress</h1>
+<p>Please do not switch tabs, right-click, or copy content.</p>
+<!-- Your exam content here -->
+</body>
+</html>

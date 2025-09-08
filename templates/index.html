@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Proctoring Dashboard</title>
+</head>
+<body>
+    <h2>Proctoring Alerts</h2>
+    <div id="alert-box" style="font-size: 1.5em; color: red;"></div>
+
+    <!-- Socket.IO client -->
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on("connect", () => {
+            console.log("Connected to server");
+        });
+
+        socket.on("alert", (data) => {
+            document.getElementById("alert-box").innerText = data.message;
+            console.log("Alert received:", data.message);
+        });
+    </script>
+</body> 
